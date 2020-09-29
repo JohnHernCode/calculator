@@ -107,11 +107,7 @@ numberButtons.forEach(button => {
     })
   })
 //if number keypad is pressed
-/*numberKeys.forEach(keydown => {
-    document.addEventListener('keydown', () => {
-        calculator.appendNumber(keydown.innerText)
-        calculator.updateDisplay()
-})*/
+
 //if operator buttons are clicked  
 operationButtons.forEach(button => {
     button.addEventListener('click', () => {
