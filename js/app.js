@@ -97,6 +97,8 @@ const deleteButton = document.querySelector('[data-delete]')
 const allClearButton = document.querySelector('[data-all-clear]')
 const previousOperandTextElement = document.querySelector('[data-previous-operand]')
 const currentOperandTextElement = document.querySelector('[data-current-operand]')
+const keyBoard = document.querySelectorAll('[data-number]')
+
 const calculator = new Calculator(previousOperandTextElement, currentOperandTextElement)
 
 //if numbers are clicked
@@ -106,7 +108,7 @@ numberButtons.forEach(button => {
       calculator.updateDisplay()
     })
   })
-//if number keypad is pressed
+
 
 //if operator buttons are clicked  
 operationButtons.forEach(button => {
@@ -130,3 +132,35 @@ deleteButton.addEventListener('click', button => {
     calculator.delete()
     calculator.updateDisplay()
   })  
+
+//if keyboard is used
+/* experimenting code below
+keyBoard.forEach(button => {
+window.addEventListener('keyup', function(key){
+    // without more calculations, if the key pressed is enter, then calculate the result
+    if (key.key == "Enter"){
+      calculator.operate()
+      calculator.updateDisplay()
+    }
+    if (key.key == "Backspace") {
+        calculator.delete()
+        calculator.updateDisplay()
+    }
+
+    // a list of valid entries
+    const validKeys = "1234567890".split("")
+    var validEntry = false
+    // be sure the key pressed is a valid entry
+    validKeys.forEach(function(k){
+      if (key == k){
+        // this will be true when the pressed key being a number or an operation symbol from the validKeys array
+        validEntry = true;
+        return;
+      }
+    });
+    if (validEntry){
+        calculator.appendNumber(key.key);
+        calculator.updateDisplay();
+    }
+});
+})*/
